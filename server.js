@@ -24,4 +24,4 @@ app.get('/', async(req,res) =>{
 })
 
 app.use('/articles',route) 
-app.listen(process.env.PORT || 3000)
+server.listen(process.env.PORT || 3000)
