@@ -22,6 +22,5 @@ app.get('/', async(req,res) =>{
     const articles = await Article.find().sort({ date : 'desc'})
     res.render('articles/landing', {articles : articles})
 })
-
 app.use('/articles',route) 
 server.listen(process.env.PORT || 3000)
