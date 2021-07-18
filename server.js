@@ -7,16 +7,20 @@ const Article = require('./models/articleSchema')
 
 const route = require('./routes/articleRoutes')
 
+app.set('view engine', 'ejs')
+
+app.use(methodOverride('_method'))
+app.use(express.urlencoded ({ extended : false}))
+
 mongoose.connect('mongodb+srv://Aishani:l9kWQXf3j7S9l0yg@cluster.gugjm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser : true, useUnifiedTopology : true, useCreateIndex : true
 }).then(() => {
     console.log("database connected");
-  });
+  }).catch((err) => {
+    console.log(`No connection: ${err}`);
+});
 
-app.set('view-engine', 'ejs')
 
-app.use(methodOverride('_method'))
-app.use(express.urlencoded ({ extended : false}))
 
 app.get('/', async(req,res) =>{
     const articles = await Article.find().sort({ date : 'desc'})

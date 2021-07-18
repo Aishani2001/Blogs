@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1>Edit your thoughts.</h1>
-        <form action="/articles"  method="POST">
+        <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
             <%- include('formFields') %>
         </form>
     </div>
