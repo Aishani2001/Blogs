@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
+//server made with http
+const server = require("http").Server(app);
 
 const Article = require('./models/articleSchema')
 
