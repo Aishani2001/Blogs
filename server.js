@@ -27,4 +27,5 @@ app.get('/', async(req,res) =>{
     res.render('articles/landing', {articles : articles})
 })
 app.use('/articles',route) 
+
 server.listen(process.env.PORT || 3000)
